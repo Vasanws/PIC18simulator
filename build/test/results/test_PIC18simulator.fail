@@ -1,0 +1,34 @@
+---
+:source:
+  :path: test
+  :file: test_PIC18simulator.c
+:successes:
+- :test: test_executionInstruction_given_0x2645_expect_addwf_called_and_access_to_0x45_with_result_stored_in_fileRegister
+  :line: 20
+  :message: ''
+  :unity_test_time: 0
+- :test: test_executionInstruction_given_0x2422_expect_addwf_called_and_access_to_0x22_with_result_stored_in_wreg
+  :line: 40
+  :message: ''
+  :unity_test_time: 0
+- :test: test_executeInstruction_given_6A2DH_expect_clrf_called_and_access_to_2DH_to_clear_the_data_stored
+  :line: 66
+  :message: ''
+  :unity_test_time: 0
+:failures:
+- :test: test_executeInstruction_given_2A12H_expect_incf_called_and_access_to_12H_with_the_result_stored_in_fileRegister
+  :line: 114
+  :message: Expected 0xF5 Was 0xF4
+  :unity_test_time: 0
+- :test: test_executeInstruction_given_05DDH_expect_decf_called_and_access_to_FDDH_with_the_result_stored_in_wreg
+  :line: 137
+  :message: Expected 0x98 Was 0xFF
+  :unity_test_time: 0
+:ignores: []
+:counts:
+  :total: 5
+  :passed: 3
+  :failed: 2
+  :ignored: 0
+:stdout: []
+:time: 0.023596099999849685

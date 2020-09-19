@@ -7,8 +7,6 @@ struct _21BitInteger {
   int value:21;
 };
 
-
-
 #define wreg      fileRegisters[0xfe8]
 #define bsr       fileRegisters[0xfe0]
 #define status    fileRegisters[0xfd8]
@@ -31,15 +29,25 @@ struct _21BitInteger {
 extern uint8_t fileRegisters[];
 extern uint8_t codeMemory[];
 //instructionExecutor is a pointer to function taking in 
-typedef void (*instructionExecutor)(void);
+typedef void (*InstructionExecutor)(void);
 
-int computeFileregAddress(int address, int bankType);
+int adjustAddrForBankedOrAccess(int type, int addr);
 int8_t add(int val1, int val2);
 
-
-
-void executionInstruction();
+void executionIntruction();
 void addwf();
-
+void decf();
+void addwfc();
+void incf();
+void clrf();
+void movwf();
+void bcf();
+void bsf();
+void bnz();
+void bc();
+void bnov();
+void bn();
+void andwf();
+void rlcf();
   
 #endif // PIC18SIMULATOR_H

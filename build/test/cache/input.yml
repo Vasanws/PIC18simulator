@@ -68,7 +68,7 @@
   :libraries:
   - ".a"
   - ".so"
-  :executable: ".out"
+  :executable: ".exe"
   :map: ".map"
   :list: ".lst"
   :testpass: ".pass"

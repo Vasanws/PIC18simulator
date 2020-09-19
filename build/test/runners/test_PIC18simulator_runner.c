@@ -10,7 +10,11 @@ char* GlobalOrderError;
 /*=======External Functions This Runner Calls=====*/
 extern void setUp(void);
 extern void tearDown(void);
-extern void test_executionInstruction_given_0x2645_expect_addwf_called(void);
+extern void test_executionInstruction_given_0x2645_expect_addwf_called_and_access_to_0x45_with_result_stored_in_fileRegister(void);
+extern void test_executionInstruction_given_0x2422_expect_addwf_called_and_access_to_0x22_with_result_stored_in_wreg(void);
+extern void test_executeInstruction_given_6A2DH_expect_clrf_called_and_access_to_2DH_to_clear_the_data_stored(void);
+extern void test_executeInstruction_given_2A12H_expect_incf_called_and_access_to_12H_with_the_result_stored_in_fileRegister(void);
+extern void test_executeInstruction_given_05DDH_expect_decf_called_and_access_to_FDDH_with_the_result_stored_in_wreg(void);
 
 
 /*=======Mock Management=====*/
@@ -75,7 +79,11 @@ static void run_test(UnityTestFunction func, const char* name, int line_num)
 int main(void)
 {
   UnityBegin("test_PIC18simulator.c");
-  run_test(test_executionInstruction_given_0x2645_expect_addwf_called, "test_executionInstruction_given_0x2645_expect_addwf_called", 13);
+  run_test(test_executionInstruction_given_0x2645_expect_addwf_called_and_access_to_0x45_with_result_stored_in_fileRegister, "test_executionInstruction_given_0x2645_expect_addwf_called_and_access_to_0x45_with_result_stored_in_fileRegister", 20);
+  run_test(test_executionInstruction_given_0x2422_expect_addwf_called_and_access_to_0x22_with_result_stored_in_wreg, "test_executionInstruction_given_0x2422_expect_addwf_called_and_access_to_0x22_with_result_stored_in_wreg", 40);
+  run_test(test_executeInstruction_given_6A2DH_expect_clrf_called_and_access_to_2DH_to_clear_the_data_stored, "test_executeInstruction_given_6A2DH_expect_clrf_called_and_access_to_2DH_to_clear_the_data_stored", 66);
+  run_test(test_executeInstruction_given_2A12H_expect_incf_called_and_access_to_12H_with_the_result_stored_in_fileRegister, "test_executeInstruction_given_2A12H_expect_incf_called_and_access_to_12H_with_the_result_stored_in_fileRegister", 98);
+  run_test(test_executeInstruction_given_05DDH_expect_decf_called_and_access_to_FDDH_with_the_result_stored_in_wreg, "test_executeInstruction_given_05DDH_expect_decf_called_and_access_to_FDDH_with_the_result_stored_in_wreg", 122);
 
   return UnityEnd();
 }
